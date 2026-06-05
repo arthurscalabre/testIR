@@ -1,10 +1,8 @@
 from calculer_revenu_net import calculer_revenu_net
 
-def formule_ir(revenu_brut):
+def formule_ir(revenu_net):
     value_type = float
     impot = 0
-
-    revenu_net = calculer_revenu_net(revenu_brut)
 
     P0 = 0
     P1 = 0.11
@@ -39,6 +37,3 @@ def formule_ir(revenu_brut):
 
     return impot
 
-#appel de la formule pour test
-revenu_brut = float(input("Entrez votre revenu : "))
-print("impot sur le revenu =", formule_ir(revenu_brut))
