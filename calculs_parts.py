@@ -1,6 +1,6 @@
 def calcul_parts() : 
-    adulte = int(input("Combien d'adultes êtes-vous ?"))
-    enfant = int(input("Combien d'enfants êtes-vous ?"))
+    adulte = int(input("Combien d'adultes êtes-vous ? :"))
+    enfant = int(input("Combien d'enfants êtes-vous ? :"))
     if enfant<=2 :
         nb_parts = adulte + enfant*0.5
     else :
