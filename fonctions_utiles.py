@@ -1,3 +1,5 @@
+import numpy as np
+
 def calculer_revenu_net (revenu_brut) :
     abbatement_forfaitaire = 0.9
     revenu_net = revenu_brut*abbatement_forfaitaire
@@ -48,5 +50,5 @@ def calcul_decote(impot_brut):
     return decote
 
 def enleve_decote(impot_brut, decote) :
-    impot = impot_brut - decote
+    impot = max(0, impot_brut - decote)
     return impot
