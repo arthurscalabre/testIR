@@ -21,34 +21,19 @@ def formule_ir(revenu_net):
     T3 = 84577
     T4 = 181917
 
-    if revenu_net > T1:
-        if revenu_net > T2:
-            if revenu_net > T3:
-                if revenu_net > T4:
-                    impot += P1 * (T2 - T1)
-                    impot += P2 * (T3 - T2)
-                    impot += P3 * (T4 - T3)
-                    impot += P4 * (revenu_net - T4)
-                else:
-                    impot += P1 * (T2 - T1)
-                    impot += P2 * (T3 - T2)
-                    impot += P3 * (revenu_net - T3)
-            else:
-                impot += P1 * (T2 - T1)
-                impot += P2 * (revenu_net - T2)
-        else:
-            impot = P1 * (revenu_net - T1)
-    else:
-        impot = 0
+    impot += np.where(revenu_net > T1, P1 * (np.minimum(revenu_net, T2) - T1), 0)
+    impot += np.where(revenu_net > T2, P2 * (np.minimum(revenu_net, T3) - T2), 0)
+    impot += np.where(revenu_net > T3, P3 * (np.minimum(revenu_net, T4) - T3), 0)
+    impot += np.where(revenu_net > T4, P4 * (revenu_net - T4), 0)
 
     return impot
 
 def calcul_decote(impot_brut):
     decote = 897 - (0.4525 * impot_brut)
     # La décote ne peut pas être négative
-    decote = max(0, decote)
+    decote = np.maximum(0, decote)
     return decote
 
 def enleve_decote(impot_brut, decote) :
-    impot = max(0, impot_brut - decote)
+    impot = np.maximum(0,impot_brut - decote)
     return impot
