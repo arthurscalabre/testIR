@@ -1,10 +1,10 @@
 from fonctions_utiles import *
 
-revenu_brut = float(input("Entrez votre revenu : "))
-revenu_net = calculer_revenu_net(revenu_brut)
-nb_parts = calcul_parts()
-revenu_imposable = quotient_familial(revenu_net, nb_parts)
-impot_brut = formule_ir(revenu_net) * nb_parts
-decote = calcul_decote(impot_brut, nb_parts)
-impot = enleve_decote(impot_brut, decote)
-print("impot sur le revenu =", impot)
+def calcul_ir(revenu_brut) : #on part du principe qu'on a une seule part
+    revenu_net = calculer_revenu_net(revenu_brut)
+    impot_brut = formule_ir(revenu_net)
+    decote = calcul_decote(impot_brut)
+    impot = enleve_decote(impot_brut, decote)
+    return(impot)
+
+print(calcul_ir(20000))

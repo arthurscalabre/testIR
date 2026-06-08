@@ -3,18 +3,6 @@ def calculer_revenu_net (revenu_brut) :
     revenu_net = revenu_brut*abbatement_forfaitaire
     return revenu_net
 
-def calcul_parts() : 
-    adulte = int(input("Combien d'adultes êtes-vous ?"))
-    enfant = int(input("Combien d'enfants êtes-vous ?"))
-    if enfant<=2 :
-        nb_parts = adulte + enfant*0.5
-    else :
-        nb_parts = adulte + enfant-1 #le -1 correspond au fait que les 2 premiers enfants compte uniquement pour 1part
-    return nb_parts
-
-def quotient_familial (revenu_net, nb_parts):
-    revenu_imposable = revenu_net/nb_parts
-    return revenu_imposable
 
 def formule_ir(revenu_net):
     value_type = float
@@ -53,11 +41,8 @@ def formule_ir(revenu_net):
 
     return impot
 
-def calcul_decote(impot_brut, nb_parts):
-    if nb_parts <= 1:  
-        decote = 897 - (0.4525 * impot_brut)
-    else:              
-        decote = 1483 - (0.4525 * impot_brut)
+def calcul_decote(impot_brut):
+    decote = 897 - (0.4525 * impot_brut)
     # La décote ne peut pas être négative
     decote = max(0, decote)
     return decote
