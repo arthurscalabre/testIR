@@ -1,6 +1,7 @@
+from calculs_parts import *
 from formule_ir import *
 from calculer_revenu_net import *
-from calculs_parts import *
+
 
 
 revenu_brut = float(input("Entrez votre revenu : "))
