@@ -1,5 +1,3 @@
-from calculer_revenu_net import calculer_revenu_net
-
 def formule_ir(revenu_net):
     value_type = float
     impot = 0
