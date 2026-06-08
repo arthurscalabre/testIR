@@ -1,9 +1,4 @@
-from calculs_parts import *
-from formule_ir import *
-from calculer_revenu_net import *
-from calcul_decote import *
-from quotient_familial import *
-from enleve_decote import *
+from fonctions_utiles import *
 
 revenu_brut = float(input("Entrez votre revenu : "))
 revenu_net = calculer_revenu_net(revenu_brut)
