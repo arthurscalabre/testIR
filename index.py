@@ -14,4 +14,9 @@ def calcul_ir(revenu_brut) : #on part du principe qu'on a une seule part
 revenu_brut = np.array([200000, 70000, 120000])
 adultes = np.array([2, 2, 2])
 enfants = np.array([1, 4, 1])
-print (calcul_ir(revenu_brut))
+
+impot = np.array(calcul_ir(revenu_brut))
+print("impot sur le revenu =", impot)
+
+taux_imposition = np.array(calcul_taux_imposition(impot,revenu_brut))
+print("taux d'imposition =", np.round(taux_imposition * 100, 1), "%")  #en %
