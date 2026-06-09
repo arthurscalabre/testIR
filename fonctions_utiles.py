@@ -54,3 +54,7 @@ def calcul_decote(impot_brut, nb_parts):
 def enleve_decote(impot_brut, decote) :
     impot = impot_brut - decote
     return impot
+
+def calcul_taux_imposition(impot,revenu_brut) :
+    taux_imposition = impot/revenu_brut
+    return taux_imposition
