@@ -5,6 +5,10 @@ def calculer_revenu_net (revenu_brut) :
     revenu_net = revenu_brut*abbatement_forfaitaire
     return revenu_net
 
+def calcul_parts (adultes, enfants) : 
+    parts = np.where (enfants<3, adultes + enfants*0.5, adultes + enfants - 1) #moins 1 car les 2 premiers enfants compte pour 1 (0.5 chacun)
+    return parts
+
 def quotient_familial (revenu_net, parts) :
     revenu_imposable = revenu_net / parts
     return revenu_imposable
