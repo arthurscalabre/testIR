@@ -5,16 +5,12 @@ ABATTEMENT_FORFAITAIRE = 0.9
 # Barème de l'impôt sur le revenu
 
     # Tranches
-T1 = 11600
-T2 = 29579
-T3 = 84577
-T4 = 181917
-
+TRANCHES_IR = (11600, 29579, 84577, 181917)
+T1, T2, T3, T4 = TRANCHES_IR
+   
     # Taux
-P1 = 0.11
-P2 = 0.30
-P3 = 0.41
-P4 = 0.45
+TAUX_IR = (0.11, 0.30, 0.41, 0.45)
+P1, P2, P3, P4 = TAUX_IR
 
 
 # Décote
