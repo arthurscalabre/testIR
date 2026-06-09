@@ -9,11 +9,12 @@ def calcul_ir(revenu_brut) : #on part du principe qu'on a une seule part
     droits_simples = np.array(calcul_droits_simples (impot_par_parts, parts))
     decote = np.array(calcul_decote(droits_simples))
     impot = np.array(enleve_decote(droits_simples, decote))
-    return(impot)
+    impot_final = np.array(appliquer_minimum(impot))
+    return(impot_final)
 
-revenu_brut = np.array([200000, 70000, 120000])
-adultes = np.array([2, 2, 2])
-enfants = np.array([1, 4, 1])
+revenu_brut = np.array([19500, 20000, 19800])
+adultes = np.array([1, 1, 1])
+enfants = np.array([0, 0, 0])
 
 impot = np.array(calcul_ir(revenu_brut))
 print("impot sur le revenu =", impot)

@@ -6,7 +6,7 @@ def calculer_revenu_net (revenu_brut) :
     return revenu_net
 
 def calcul_parts (adultes, enfants) : 
-    parts = np.where (enfants<3, adultes + enfants*0.5, adultes + enfants - 1) #moins 1 car les 2 premiers enfants compte pour 1 (0.5 chacun)
+    parts = np.where (enfants<=2, adultes*NB_PARTS_ADULTE + enfants*NB_PARTS_ENFANTS_1ou2, adultes + enfants*NB_PARTS_ENFANTS3 - 2*NB_PARTS_ENFANTS_1ou2) #moins 1 car les 2 premiers enfants compte pour 1 (0.5 chacun)
     return parts
 
 def quotient_familial (revenu_net, parts) :
@@ -36,6 +36,9 @@ def calcul_decote(impot_brut):
 def enleve_decote(impot_brut, decote) :
     impot = np.maximum(0,impot_brut - decote)
     return impot
+
+def appliquer_minimum(impot):
+    return np.where(impot < MONTANT_MINIMUM, 0, impot)
 
 def calcul_taux_imposition(impot,revenu_brut) :
     taux_imposition = impot/revenu_brut
