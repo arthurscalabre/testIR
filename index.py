@@ -9,4 +9,8 @@ def calcul_ir(revenu_brut) : #on part du principe qu'on a une seule part
     return(impot)
 
 revenu_brut = np.array([20000, 70000, 120000])
-print (calcul_ir(revenu_brut))
+impot = np.array(calcul_ir(revenu_brut))
+print("impot sur le revenu =", impot)
+
+taux_imposition = np.array(calcul_taux_imposition(impot,revenu_brut))
+print("taux d'imposition =", round(taux_imposition * 100, 2), "%")  #en %
