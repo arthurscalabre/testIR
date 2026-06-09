@@ -5,8 +5,12 @@ def calculer_revenu_net (revenu_brut) :
     revenu_net = revenu_brut*ABATTEMENT_FORFAITAIRE
     return revenu_net
 
-def quotient_familial (revenu_net, nb_parts):
-    revenu_imposable = revenu_net/nb_parts
+def calcul_parts (adultes, enfants) : 
+    parts = np.where (enfants<3, adultes + enfants*0.5, adultes + enfants - 1) #moins 1 car les 2 premiers enfants compte pour 1 (0.5 chacun)
+    return parts
+
+def quotient_familial (revenu_net, parts) :
+    revenu_imposable = revenu_net / parts
     return revenu_imposable
 
 def formule_ir(revenu_net):
@@ -18,6 +22,10 @@ def formule_ir(revenu_net):
     impot += np.where(revenu_net > T4, P4 * (revenu_net - T4), 0)
 
     return impot
+
+def calcul_droits_simples(impots_par_parts, parts) :
+    droits_simples = impots_par_parts * parts
+    return droits_simples
 
 def calcul_decote(impot_brut):
     decote = SEUIL_DECOTE_SEUL - (TAUX_DECOTE * impot_brut)
